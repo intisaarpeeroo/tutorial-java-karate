@@ -38,10 +38,9 @@ jobs:
         continue-on-error: true
         run: |
           npm install -g junit-processor
-      - name: Run junit-processor and move report to local dir
+      - name: Run junit-processor
         run: |
           junit-processor -p 1 /home/runner/work/tutorial-java-karate/tutorial-java-karate/target/karate-reports/examples.DummyUsers.dummyusers.xml
-          mv /home/runner/work/tutorial-java-karate/tutorial-java-karate/target/karate-reports/junit-new.xml .
       - name: "Import results to Xray (server/DC)"
         uses: mikepenz/xray-action@v2.0.0
         with:
